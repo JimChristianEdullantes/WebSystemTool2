@@ -52,7 +52,7 @@ class FileController extends Controller
         $newFile->file_path = $path;
         $newFile->save();
 
-        return redirect("files"); 
+        return redirect("files")->with("Stored", "File has been added successfully"); 
     }
 
     /**
@@ -93,7 +93,7 @@ class FileController extends Controller
         $file->file_name = $request->file_name;
         $file->save();
 
-        return redirect('files');
+        return redirect('files')->with("Updated", "File has been updated successfully");
     }
 
     /**
@@ -102,9 +102,9 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(File $file)
     {
-        File::find($id)->delete();
-        return redirect('files');
+        $file->delete();
+        return redirect('files')->with("Deleted", "File has been deleted successfully");
     }
 }

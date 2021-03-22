@@ -5,16 +5,16 @@
 <h1>&nbsp;&nbsp;Activity 2 FILES</h1>
 </br>
 
-@if(session('Product'))
-    <p class="text-success"> &nbsp;&nbsp;&nbsp;{{session('Product')}}</p></br>
+@if(session('Stored'))
+    <p class="text-success"> &nbsp;&nbsp;&nbsp;{{session('Stored')}}</p></br>
 @endif
 
-@if(session('updateProduct'))
-    <p class="text-primary"> &nbsp;&nbsp;&nbsp;{{session('updateProduct')}}</p></br>
+@if(session('Updated'))
+    <p class="text-primary"> &nbsp;&nbsp;&nbsp;{{session('Updated')}}</p></br>
 @endif
 
-@if(session('deleteProduct'))
-    <p class="text-danger"> &nbsp;&nbsp;&nbsp;{{session('deleteProduct')}}</p></br>
+@if(session('Deleted'))
+    <p class="text-danger"> &nbsp;&nbsp;&nbsp;{{session('Deleted')}}</p></br>
 @endif
 
 
@@ -50,14 +50,14 @@
                                                     <td>{{$file->updated_at}}</td>
                                                     
                                                     <td>
-
-                                                        <a href="{{route('files.files.show', $file)}}" class="btn btn-success btn-sm" style="width:90px;">View File</a>
-                                                        <a href="{{route('files.files.edit', $file)}}" class="btn btn-primary btn-sm" style="width:120px;">Edit Filename</a>
-
-                                                        <a class="btn btn-danger btn-sm" href="{{route('files.files.destroy', $file->id)}}" onclick="event.preventDefault();document.getElementById('delete').submit();">Delete File</a>
-                                                        <form id="delete" action="{{route('files.files.destroy', $file->id)}}" method="POST" class="d-none">
+                                                        <form id="delete" action="{{route('files.files.destroy', $file->id)}}" method="POST">
+                                                            <a href="{{route('files.files.show', $file)}}" class="btn btn-success btn-sm" style="width:90px;">View File</a>
+                                                            <a href="{{route('files.files.edit', $file)}}" class="btn btn-primary btn-sm" style="width:120px;">Edit Filename</a>
+                                                        
                                                             @csrf 
                                                             {{method_field('DELETE')}}
+
+                                                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                                                         </form>  
                                                         
                                                     </td>

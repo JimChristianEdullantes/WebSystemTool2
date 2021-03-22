@@ -36,14 +36,15 @@
                                                     
                                                     <td>
 
-                                                        <a href="{{route('files.files.show', $file)}}" class="btn btn-success btn-sm" style="width:90px;">View File</a>
-                                                        <a href="{{route('files.files.edit', $file)}}" class="btn btn-primary btn-sm" style="width:120px;">Edit Filename</a>
-
-                                                        <a class="btn btn-danger btn-sm" href="{{route('files.files.destroy', $file->id)}}" onclick="event.preventDefault();document.getElementById('delete').submit();">Delete File</a>
-                                                        <form id="delete" action="{{route('files.files.destroy', $file->id)}}" method="POST" class="d-none">
+                                                        <form id="delete" action="{{route('files.files.destroy', $file->id)}}" method="POST">
+                                                            <a href="{{route('files.files.show', $file)}}" class="btn btn-success btn-sm" style="width:90px;">View File</a>
+                                                            <a href="{{route('files.files.edit', $file)}}" class="btn btn-primary btn-sm" style="width:120px;">Edit Filename</a>
+                                                        
                                                             @csrf 
                                                             {{method_field('DELETE')}}
-                                                        </form>  
+
+                                                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                                        </form> 
                                                         
                                                     </td>
                                                     
