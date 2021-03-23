@@ -13,7 +13,7 @@
         <form class="ml-5"action="{{route('files.files.store')}}" method="POST" enctype="multipart/form-data">
           @csrf
   
-          <input class="mb-2" type="file" name="file">
+          <input class="mb-2" type="file" name="file" id="fileUpload">
           </br>
           <span class="text-success"> File must not be greater than 2MB</span>
            @error('file')
@@ -29,7 +29,22 @@
         </form>
     </div>
 
-
-    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            maxFileSize = 2 * 1024 * 1024; // 2MB
+            $('#fileUpload').change(function(){
+                fileSize = this.files[0].size;
+                if(fileSize > maxFileSize)
+                {
+                    this.setCustomValidity("File must not be greater than 2MB");
+                    this.reportValidity();
+                }
+                else
+                {
+                    this.setCustomValidity("");
+                }
+            });
+        });
+    </script>
 
 @endsection
