@@ -49,13 +49,14 @@
                                                     <td>{{$product->price}}</td>
                                                     <td>{{$product->created_at}}</td>
                                                     <td>
-                                                        <a href="{{route('products.products.show', $product)}}" class="btn btn-success btn-sm" style="width:62px;">View</a>
-                                                        <a href="{{route('products.products.edit', $product)}}" class="btn btn-primary btn-sm" style="width:62px;">Edit</a>
+                                                        <form id="delete" action="{{route('products.products.destroy', $product)}}" method="POST">   
+                                                            <a href="{{route('products.products.show', $product)}}" class="btn btn-success btn-sm" style="width:62px;">View</a>
+                                                            <a href="{{route('products.products.edit', $product)}}" class="btn btn-primary btn-sm" style="width:62px;">Edit</a>
 
-                                                        <a class="btn btn-danger btn-sm" href="{{route('products.products.destroy', $product)}}" onclick="event.preventDefault();document.getElementById('delete').submit();">Delete</a>
-                                                        <form id="delete" action="{{route('products.products.destroy', $product)}}" method="POST" class="d-none">
                                                             @csrf 
                                                             {{method_field('DELETE')}}
+
+                                                            <button class="btn btn-danger btn-sm" type="submit">Delete</buton>
                                                         </form>  
                                                     </td>
                                                     
