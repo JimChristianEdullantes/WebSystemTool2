@@ -14,6 +14,8 @@
           @csrf
   
           <input class="mb-2" type="file" name="file">
+          </br>
+          <span class="text-success"> File must not be greater than 2MB</span>
            @error('file')
                <div class="alert alert-danger mt-1 mb-1">
                    {{$message}}
