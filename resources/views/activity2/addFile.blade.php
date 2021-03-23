@@ -14,7 +14,6 @@
           @csrf
   
           <input class="mb-2" type="file" name="file" id="fileUpload">
-          </br>
            @error('file')
                <div class="alert alert-danger mt-1 mb-1">
                    {{$message}}
