@@ -80,9 +80,10 @@ Activity 1
 							<span style="width: 108px;">Price</span>
 						</th>
 
-						<th data-field="Status" class="datatable-cell datatable-cell-sort" style="display: none;">
-							<span style="width: 108px;">Date Create</span>
+						<th data-field="CompanyName" class="datatable-cell datatable-cell-sort">
+							<span style="width: 108px;">Date Created</span>
 						</th>
+
 
 						<th data-field="Actions" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort">
 							<span style="width: 125px;">Actions</span>
@@ -107,10 +108,8 @@ Activity 1
 								<span style="width: 108px;">{{$product->description}}</span>
 							</td>
 
-							<td data-field="Status" aria-label="6" class="datatable-cell" style="display: none;">
-								<span style="width: 108px;">
-									<span class="label font-weight-bold label-lg  label-light-danger label-inline">{{$product->price}}</span>
-								</span>
+							<td data-field="CompanyName" aria-label="Kris-Wehner" class="datatable-cell">
+								<span style="width: 108px;">{{$product->price}}</span>
 							</td>
 
 							<td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell">
