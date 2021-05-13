@@ -14,7 +14,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::all();
+        $files = File::paginate(5);
         return view('activity2.showFiles', ["files"=> $files]);
     }
 
